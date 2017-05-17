@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="227.0" prefWidth="473.0" style="-fx-background-color: #4F5D73;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.SplashScreenController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="24.0">
+         <image>
+            <Image url="@images/Logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="132.0" layoutY="157.0" text="Bus Service Browser" textFill="WHITE" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="157.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="progress_bar" layoutY="204.0" prefHeight="18.0" prefWidth="473.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>

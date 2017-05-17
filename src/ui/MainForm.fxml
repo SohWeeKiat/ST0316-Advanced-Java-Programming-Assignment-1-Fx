@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane id="AnchorPane" minHeight="502.0" minWidth="773.0" prefHeight="502.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainFormController">
+    <children>
+        <TabPane id="MainTabCtrl" prefHeight="417.0" prefWidth="639.0" stylesheets="@tabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Search">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="402.0" style="-fx-background-color: white;">
+                            <children>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/Search-25.png" />
+                                    </image>
+                                </ImageView>
+                                <TextField fx:id="tBSearch" layoutX="46.0" layoutY="11.0" prefHeight="25.0" prefWidth="587.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="11.0">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <TabPane layoutY="42.0" prefHeight="330.0" prefWidth="639.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
+                                    <tabs>
+                                        <Tab text="Buses">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TableView fx:id="TableBusResult" prefHeight="279.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <columns>
+                                                                <TableColumn editable="false" prefWidth="637.0" text="Bus Number">
+                                                                    <cellValueFactory>
+                                                                        <PropertyValueFactory property="BusCode" />
+                                                                    </cellValueFactory>
+                                                                </TableColumn>  
+                                                            </columns>
+                                                            <columnResizePolicy>
+                                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                            </columnResizePolicy>
+                                                        </TableView>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Bus Stops">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TableView fx:id="TableBusStopResult" prefHeight="306.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <columns>
+                                                                <TableColumn editable="false" prefWidth="111.0" text="Bus Stop Number">
+                                                                    <cellValueFactory>
+                                                                        <PropertyValueFactory property="BusStopCode" />
+                                                                    </cellValueFactory>
+                                                                </TableColumn>  
+                                                                <TableColumn editable="false" prefWidth="273.0" text="Bus Stop Description">
+                                                                    <cellValueFactory>
+                                                                        <PropertyValueFactory property="BusStopDesc" />
+                                                                    </cellValueFactory>
+                                                                </TableColumn>    
+                                                                <TableColumn editable="false" prefWidth="234.0" text="Road Desccription">
+                                                                    <cellValueFactory>
+                                                                        <PropertyValueFactory property="RoadDesc" />
+                                                                    </cellValueFactory>
+                                                                </TableColumn>  
+                                                            </columns>
+                                                            <columnResizePolicy>
+                                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                            </columnResizePolicy>
+                                                        </TableView>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Buses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                            <children>
+                                <TableView fx:id="TableBuses" prefHeight="381.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn editable="false" prefWidth="637.0" text="Bus Number">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusCode" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Bus Stops">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="TableBusStops" prefHeight="377.0" prefWidth="645.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn editable="false" prefWidth="126.0" text="Bus Stop Number">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusStopCode" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                        <TableColumn editable="false" prefWidth="327.0" text="Bus Stop Description">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusStopDesc" />
+                                            </cellValueFactory>
+                                        </TableColumn>    
+                                        <TableColumn editable="false" prefWidth="305.0" text="Road Description">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="RoadDesc" />
+                                            </cellValueFactory>
+                                        </TableColumn>    
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Find Route">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" style="-fx-background-color: white;" text="Start Location :" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="20.0" layoutY="52.0" style="-fx-background-color: white;" text="End Location :" AnchorPane.leftAnchor="20.0">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                                <TextField editable="false" layoutX="123.0" layoutY="12.0" prefHeight="31.0" prefWidth="520.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="12.0">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <Button layoutX="647.0" layoutY="13.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="60.0" text="Browse.." AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="13.0" />
+                                <Button layoutX="647.0" layoutY="48.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="60.0" text="Browse.." AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="48.0" />
+                                <TextField editable="false" layoutX="123.0" layoutY="47.0" prefHeight="31.0" prefWidth="520.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="47.0">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <Button layoutX="714.0" layoutY="12.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="45.0" text="Swap" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0" />
+                                <TableView layoutX="13.0" layoutY="85.0" prefHeight="366.0" prefWidth="160.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="85.0">
+                                    <columns>
+                                        <TableColumn prefWidth="158.0" text="Routes" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                                <TableView layoutX="183.0" layoutY="85.0" prefHeight="364.0" prefWidth="576.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="85.0">
+                                    <columns>
+                                        <TableColumn editable="false" prefWidth="65.0" text="Sequence" />
+                                        <TableColumn editable="false" prefWidth="108.0" text="Bus Stop Number" />
+                                        <TableColumn editable="false" prefWidth="150.0" text="Bus Stop Desc" />
+                                        <TableColumn editable="false" prefWidth="150.0" text="Road Desc" />
+                                        <TableColumn prefWidth="75.0" text="Bus To Take" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
