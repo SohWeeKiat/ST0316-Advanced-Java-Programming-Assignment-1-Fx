@@ -18,6 +18,7 @@ public class BusStopPathCollection implements Comparable{
     
     private final LinkedList<BusStopPath> path;
     private final ArrayList<BusStop> transfers;
+    private int Index;
     
     public BusStopPathCollection(LinkedList<BusStopPath> p)
     {
@@ -34,6 +35,16 @@ public class BusStopPathCollection implements Comparable{
     public LinkedList<BusStopPath> GetPath()
     {
         return path;
+    }
+    
+    public void SetIndex(int index)
+    {
+        Index = index;
+    }
+    
+    public String getRouteDesc()
+    {
+        return Index + " - " + toString();
     }
     
     private BusStop GetStartLocation()

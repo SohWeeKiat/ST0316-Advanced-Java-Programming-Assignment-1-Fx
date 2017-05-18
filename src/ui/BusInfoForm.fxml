@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.BusInfoFormController">
+    <children>
+        <ImageView fx:id="ImageBusCompany" fitHeight="150.0" fitWidth="230.0" layoutX="14.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="85.0" />
+        <Label fx:id="lBusNumber" layoutX="14.0" layoutY="235.0" text="Bus Number:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="235.0">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <TabPane fx:id="TabCtrl" layoutX="244.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <tabs>
+                <Tab text="Route 1">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="TableRoute1" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                    <columns>
+                                        <TableColumn prefWidth="45.0" text="Sequence">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="Sequence" />
+                                            </cellValueFactory>
+                                        </TableColumn>  
+                                        <TableColumn prefWidth="75.0" text="Bus Stop Number">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusStopCode" />
+                                            </cellValueFactory>
+                                        </TableColumn>  
+                                        <TableColumn prefWidth="75.0" text="Bus Stop Desc">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusStopDesc" />
+                                            </cellValueFactory>
+                                        </TableColumn> 
+                                        <TableColumn prefWidth="75.0" text="Road Desc">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="RoadDesc" />
+                                            </cellValueFactory>
+                                        </TableColumn>  
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Route 2">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="TableRoute2" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="45.0" text="Sequence">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="Sequence" />
+                                            </cellValueFactory>
+                                        </TableColumn>  
+                                        <TableColumn prefWidth="75.0" text="Bus Stop Number">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusStopCode" />
+                                            </cellValueFactory>
+                                        </TableColumn>  
+                                        <TableColumn prefWidth="75.0" text="Bus Stop Desc">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="BusStopDesc" />
+                                            </cellValueFactory>
+                                        </TableColumn> 
+                                        <TableColumn prefWidth="75.0" text="Road Desc">
+                                            <cellValueFactory>
+                                                <PropertyValueFactory property="RoadDesc" />
+                                            </cellValueFactory>
+                                        </TableColumn>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

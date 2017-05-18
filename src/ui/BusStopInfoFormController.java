@@ -16,7 +16,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javax.swing.table.DefaultTableModel;
 
 /**
  * FXML Controller class

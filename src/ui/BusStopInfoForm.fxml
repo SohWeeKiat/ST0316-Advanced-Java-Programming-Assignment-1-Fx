@@ -32,7 +32,7 @@
                             <children>
                                 <TableView fx:id="TableRoute" prefHeight="363.0" prefWidth="424.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn prefWidth="75.0" text="Sequence">
+                                        <TableColumn prefWidth="45.0" text="Sequence">
                                             <cellValueFactory>
                                                 <PropertyValueFactory property="Sequence" />
                                             </cellValueFactory>
