@@ -126,14 +126,19 @@ public class MainFormController implements Initializable {
         TableRoutes.setRowFactory(tv -> {
             TableRow<BusStopPathCollection> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 1 && (!row.isEmpty())) {
+                if (!row.isEmpty()){
                     BusStopPathCollection rowData = row.getItem();
-                    ShowRouteInfo(rowData);
+                    if (event.getClickCount() == 1){
+                        ShowRouteInfo(rowData);
+                    }else if (event.getClickCount() == 2){
+                        ShowRouteOnMap(rowData);
+                    }
                 }
             });
             return row;
         });
-        
+        StartLocation = null;
+        EndLocation = null;
         // TODO
         RefreshSearchResult();
         ShowAllBusAndBusStops();
@@ -191,8 +196,8 @@ public class MainFormController implements Initializable {
         BusStop TempBS = StartLocation;
         StartLocation = EndLocation;
         EndLocation = TempBS;
-        tBStartLoc.setText(StartLocation.toString());
-        tBEndLoc.setText(EndLocation.toString());
+        tBStartLoc.setText(StartLocation != null ? StartLocation.toString() : "");
+        tBEndLoc.setText(EndLocation != null ? EndLocation.toString() : "");
         SearchRoute();
     }
     
@@ -305,5 +310,26 @@ public class MainFormController implements Initializable {
             RouteData.add(new BusStopTableData(Integer.toString(index++),p.GetSrc(),p.GetBus()));
         }
         RouteData.add(new BusStopTableData(Integer.toString(index++),LastPath.GetDest(),LastPath.GetBus()));
+    }
+    
+    private void ShowRouteOnMap(BusStopPathCollection c)
+    {
+        Stage stage = new Stage();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/GoogleMapForm.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent)loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(MainFormController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        GoogleMapFormController controller = (GoogleMapFormController)loader.getController();
+        controller.SetRoute(c);
+        Scene MapScene = new Scene(root);
+        stage.setTitle("Google Map Route");
+        stage.setScene(MapScene);
+        stage.initOwner(tBSearch.getScene().getWindow());
+        stage.initModality(Modality.APPLICATION_MODAL); 
+        stage.showAndWait();
     }
 }

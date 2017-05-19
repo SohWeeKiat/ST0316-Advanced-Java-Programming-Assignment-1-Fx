@@ -20,6 +20,7 @@ public class BusStop implements Comparable{
     private final String road_desc;
     private final String bus_stop_desc;
     private final ArrayList<Bus> buses;
+    private double X, Y;
     
     public BusStop()
     {
@@ -55,6 +56,22 @@ public class BusStop implements Comparable{
     public ArrayList<Bus> GetBuses()
     {
         return buses;
+    }
+    
+    public void SetXY(double X,double Y)
+    {
+        this.X = X;
+        this.Y = Y;
+    }
+    
+    public double GetX()
+    {
+        return X;
+    }
+    
+    public double GetY()
+    {
+        return Y;
     }
     
     @Override

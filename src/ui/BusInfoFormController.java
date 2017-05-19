@@ -6,7 +6,6 @@
 package ui;
 
 import ajpassignmentfx.*;
-import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;

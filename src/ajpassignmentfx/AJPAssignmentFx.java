@@ -31,6 +31,7 @@ public class AJPAssignmentFx extends Application {
     {
         Stage stage = new Stage();
         
+        //Parent scene = FXMLLoader.load(getClass().getResource("/ui/GoogleMapForm.fxml"));
         Parent scene = FXMLLoader.load(getClass().getResource("/ui/MainForm.fxml"));
         Scene MainForm = new Scene(scene);
         

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java-Buddy: Google Maps</title>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <style>#mapcanvas { 
+	height: 480px; 
+	width: 100%}</style>
+
+
+
+</head>
+<body>
+<div id="mapcanvas">
+    <script type="text/javascript">
+        document.map = new google.maps.Map(document.getElementById("mapcanvas"));
+        var latlng = new google.maps.LatLng(1.3082507,103.77751);
+        var Options = {
+            zoom: 14,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("mapcanvas"), Options);
+		document.goToLocation = function(x, y) {
+            var latLng = new google.maps.LatLng(x, y);
+            marker.setPosition(latLng);
+            map.setCenter(latLng);
+        }
+    </script>
+
+
+</div>
+</body>
+</html>

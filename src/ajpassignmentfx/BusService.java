@@ -51,6 +51,8 @@ public class BusService {
                 return false;
             }else if (!InitializeBusSvcs("lta-smrt_route.csv",false)){
                 return false;
+            }else if (!InitializeBusStopLocation()){
+                return false;
             }
         }catch(IOException e){
             return false;
@@ -118,6 +120,36 @@ public class BusService {
             s = BusSvcReader.readLine();
         }while(s != null && !s.isEmpty());
         BusSvcReader.close();
+        return true;
+    }
+    
+        
+    private boolean InitializeBusStopLocation() throws IOException
+    {
+        FileReader BusStopLocFile;
+        try{
+            BusStopLocFile = new FileReader("lta-bus_stop_locations.csv");
+        }catch(FileNotFoundException e){
+            return false;
+        }
+        BufferedReader BusStopLocReader = new BufferedReader(BusStopLocFile);
+
+        BusStopLocReader.readLine();
+        String s = BusStopLocReader.readLine();
+        do{
+            StringTokenizer st = new StringTokenizer(s,",",false);
+            double X = Double.parseDouble(st.nextToken());
+            double Y = Double.parseDouble(st.nextToken());
+            st.nextToken();
+            String BusCode = st.nextToken();
+            if (bus_stops.containsKey(BusCode)){
+                bus_stops.get(BusCode).SetXY(X, Y);
+            }
+            
+            s = BusStopLocReader.readLine();
+        }while(s != null && !s.isEmpty());
+        
+        BusStopLocReader.close();
         return true;
     }
     
