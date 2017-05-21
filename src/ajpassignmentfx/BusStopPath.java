@@ -13,9 +13,9 @@ import java.util.Objects;
  */
 public class BusStopPath {
     
-    private BusStop Source;
-    private BusStop Destination;
-    private Bus BusTaken;
+    private final BusStop Source;
+    private final BusStop Destination;
+    private final Bus BusTaken;
     
     public BusStopPath(BusStop Src,BusStop Dest,Bus b)
     {

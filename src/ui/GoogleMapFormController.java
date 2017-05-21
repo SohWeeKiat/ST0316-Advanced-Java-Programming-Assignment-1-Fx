@@ -6,12 +6,9 @@
 package ui;
 
 import ajpassignmentfx.*;
-import ajpassignmentfx.BusService;
 import ajpassignmentfx.BusStop;
 import ajpassignmentfx.BusStopPathCollection;
-import ajpassignmentfx.DelayedEvent;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -44,11 +41,6 @@ public class GoogleMapFormController implements Initializable {
         final URL urlGoogleMaps = getClass().getResource("/ui/google_map.html");
         webEngine.load(urlGoogleMaps.toExternalForm());
         
-        /*new DelayedEvent(2000,()->{
-            List<BusStop> list = BusService.get().GetAllBusStop();
-            
-            
-        });*/
         webEngine.getLoadWorker().stateProperty().addListener(
             new ChangeListener<State>() {
             @Override 
@@ -68,7 +60,6 @@ public class GoogleMapFormController implements Initializable {
                         index++;
                     }
                     JavaScriptCode += AddMarker(index,LastPath.GetDest());
-                    System.out.println(JavaScriptCode);
                     webEngine.executeScript(JavaScriptCode);
                 }
             }
@@ -88,7 +79,8 @@ public class GoogleMapFormController implements Initializable {
                 "});";
     }
     
-    public void SetRoute(BusStopPathCollection c){
+    public void SetRoute(BusStopPathCollection c)
+    {
         route = c;
     }
 }

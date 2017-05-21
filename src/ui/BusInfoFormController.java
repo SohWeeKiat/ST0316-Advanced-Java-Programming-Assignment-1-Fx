@@ -19,7 +19,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
